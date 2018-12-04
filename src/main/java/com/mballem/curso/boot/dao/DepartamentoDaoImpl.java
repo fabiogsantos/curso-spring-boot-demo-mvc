@@ -1,5 +1,10 @@
 package com.mballem.curso.boot.dao;
 
-public class DepartamentoDaoImpl extends AbstractDao<T, PK> {
+import org.springframework.stereotype.Repository;
+
+import com.mballem.curso.boot.doamin.Departamento;
+
+@Repository
+public class DepartamentoDaoImpl extends AbstractDao<Departamento, Long> implements DepartamentoDao {
 
 }
