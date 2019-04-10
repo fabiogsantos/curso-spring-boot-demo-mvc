@@ -12,15 +12,15 @@ import javax.persistence.OneToMany;
 @Entity(name="CARGOS")
 public class Cargo extends AbstractEntity<Long> {
 
-	  @Column(name="nome", nullable=false, unique=true, length=60)
-	  private String nome;
+	@Column(name="nome", nullable=false, unique=true, length=60)
+	private String nome;
 	  
-	  @ManyToOne
-	  @JoinColumn(name="id_departamento_fk")
-	  private Departamento departamento;
-
-	  @OneToMany(mappedBy="carga")
-	  private List<Funcionario> funcionarios;
+	@ManyToOne
+	@JoinColumn(name="id_departamento_fk")
+	private Departamento departamento;
+	
+	@OneToMany(mappedBy="cargo")
+	private List<Funcionario> funcionarios;
 	  
 	public String getNome() {
 		return nome;
