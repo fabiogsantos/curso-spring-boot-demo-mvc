@@ -2,7 +2,7 @@ package com.mballem.curso.boot.service;
 
 import java.util.List;
 
-import com.mballem.curso.boot.doamin.Cargo;
+import com.mballem.curso.boot.domain.Cargo;
 
 public interface CargoService {
 	

@@ -7,25 +7,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mballem.curso.boot.dao.DepartamentoDao;
-import com.mballem.curso.boot.doamin.Departamento;
+import com.mballem.curso.boot.domain.Departamento;
 
 @Service
+@Transactional(readOnly=false)
 public class DepartamentoServiceImpl implements DepartamentoService {
 
 	@Autowired
 	private DepartamentoDao dao;
 	
-	@Override @Transactional(readOnly=true)
+	@Override
 	public void salvar(Departamento departamento) {
 		dao.save(departamento);
 	}
 
-	@Override @Transactional(readOnly=true)
+	@Override
 	public void editar(Departamento departamento) {
 		dao.update(departamento);
 	}
 
-	@Override @Transactional(readOnly=true)
+	@Override
 	public void excluir(Long id) {
 		dao.delete(id);		
 	}
@@ -38,6 +39,11 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 	@Override @Transactional(readOnly=true)
 	public List<Departamento> buscarTodos() {
 		return dao.findAll();
+	}
+
+	@Override @Transactional(readOnly=true)
+	public boolean departamentoTemCargos(Long id) {
+		return (! buscarPorId(id).getCargos().isEmpty());
 	}
 
 }

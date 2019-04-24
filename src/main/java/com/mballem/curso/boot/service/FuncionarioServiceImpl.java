@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mballem.curso.boot.dao.FuncionarioDao;
-import com.mballem.curso.boot.doamin.Funcionario;
+import com.mballem.curso.boot.domain.Funcionario;
 
 @Service @Transactional(readOnly=true)
 public class FuncionarioServiceImpl implements FuncionarioService {

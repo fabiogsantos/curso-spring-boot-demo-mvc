@@ -2,13 +2,13 @@ package com.mballem.curso.boot.dao;
 
 import java.util.List;
 
-import com.mballem.curso.boot.doamin.Funcionario;
+import com.mballem.curso.boot.domain.Funcionario;
 
 public interface FuncionarioDao {
 	
-	void save(Funcionario Funcionario);
+	void save(Funcionario funcionario);
 	
-	void update(Funcionario Funcionario);
+	void update(Funcionario funcionario);
 
 	void delete(Long id);
 	

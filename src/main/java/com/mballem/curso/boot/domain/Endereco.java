@@ -1,4 +1,4 @@
-package com.mballem.curso.boot.doamin;
+package com.mballem.curso.boot.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,6 +24,14 @@ public class Endereco extends AbstractEntity<Long> {
 	@Enumerated(EnumType.STRING)
 	private UF uf;
 	
+	@Column(nullable = false, length = 9)
+	private String cep;
+
+	@Column(nullable = false, length = 5)
+	private Integer numero;
+
+	private String complemento;
+
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -79,13 +87,4 @@ public class Endereco extends AbstractEntity<Long> {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
-
-	@Column(nullable=false, length=9)
-	private String cep;
-	
-	@Column(nullable=false, length=5)
-	private Integer numero;
-	
-	private String complemento;
-
 }

@@ -2,7 +2,7 @@ package com.mballem.curso.boot.service;
 
 import java.util.List;
 
-import com.mballem.curso.boot.doamin.Departamento;
+import com.mballem.curso.boot.domain.Departamento;
 
 public interface DepartamentoService {
 	
@@ -14,6 +14,8 @@ public interface DepartamentoService {
 
 	Departamento buscarPorId(Long id);
 	
-	List<Departamento> buscarTodos();	
+	List<Departamento> buscarTodos();
+	
+	public boolean departamentoTemCargos(Long id);
 
 }

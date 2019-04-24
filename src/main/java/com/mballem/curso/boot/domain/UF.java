@@ -1,4 +1,4 @@
-package com.mballem.curso.boot.doamin;
+package com.mballem.curso.boot.domain;
 
 public enum UF {
 	
