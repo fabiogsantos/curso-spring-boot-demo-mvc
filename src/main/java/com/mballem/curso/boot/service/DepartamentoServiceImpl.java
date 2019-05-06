@@ -43,7 +43,11 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 
 	@Override @Transactional(readOnly=true)
 	public boolean departamentoTemCargos(Long id) {
-		return (! buscarPorId(id).getCargos().isEmpty());
+		Departamento departamento = buscarPorId(id);
+		if (departamento != null) {		
+		  return (! departamento.getCargos().isEmpty());
+		}  
+	    return false;
 	}
 
 }
