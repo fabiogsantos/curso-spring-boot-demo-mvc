@@ -33,7 +33,8 @@ public class CargoController {
 	  }
 
 	  @GetMapping("/listar")
-	  public String listar() {
+	  public String listar(ModelMap model) {
+		  model.addAttribute("cargos",service.buscarTodos());		  
 		  return "/cargo/lista";
 	  }
 
@@ -48,7 +49,6 @@ public class CargoController {
 	  public List<Departamento> listaDeDepartamentos() {
 		  return departamentoService.buscarTodos(); 
 	  }
-
 		 
 	  @GetMapping("/editar/{id}")
 	  public String preEditar(@PathVariable("id") Long id, ModelMap model) {
