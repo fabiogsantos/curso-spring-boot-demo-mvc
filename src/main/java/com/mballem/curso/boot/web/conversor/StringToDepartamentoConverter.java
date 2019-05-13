@@ -19,9 +19,8 @@ public class StringToDepartamentoConverter implements Converter<String, Departam
 			return null;
 		}
 		
-		Long id = Long.valueOf(source);
-		service.buscarPorId(id);
-		return null;
+		Long id = Long.valueOf(source);	
+		return service.buscarPorId(id);
 	}
 
 }
