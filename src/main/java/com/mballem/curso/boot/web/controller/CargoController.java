@@ -44,11 +44,6 @@ public class CargoController {
 		  attr.addFlashAttribute("success","Cargo inserido com sucesso.");
 		  return "redirect:/cargos/cadastrar";
 	  }
-	  
-	  @ModelAttribute("departamentos")
-	  public List<Departamento> listaDeDepartamentos() {
-		  return departamentoService.buscarTodos(); 
-	  }
 		 
 	  @GetMapping("/editar/{id}")
 	  public String preEditar(@PathVariable("id") Long id, ModelMap model) {
@@ -57,8 +52,14 @@ public class CargoController {
 	  }
 	  
 	  @PostMapping("/editar")
-	  public String editar(Cargo cargo) {
+	  public String editar(Cargo cargo, RedirectAttributes attr) {
 		  service.editar(cargo);
+		  attr.addFlashAttribute("success", "Registro atualizado com sucesso.");
 		  return "redirect:/cargos/cadastrar";
+	  }
+	  
+	  @ModelAttribute("departamentos")
+	  public List<Departamento> listaDeDepartamentos() {
+		  return departamentoService.buscarTodos(); 
 	  }	  
 }
