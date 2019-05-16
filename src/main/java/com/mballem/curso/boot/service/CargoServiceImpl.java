@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mballem.curso.boot.dao.CargoDao;
 import com.mballem.curso.boot.domain.Cargo;
+import com.mballem.curso.boot.domain.Departamento;
 
 @Service @Transactional(readOnly=false)
 public class CargoServiceImpl implements CargoService {
@@ -39,5 +40,14 @@ public class CargoServiceImpl implements CargoService {
 	public List<Cargo> buscarTodos() {
 		return dao.findAll();
 	}
+
+	@Override @Transactional(readOnly=true)
+	public boolean cargoTemFuncionarios(Long id) {
+		Cargo cargo = buscarPorId(id);
+		if (cargo != null) {		
+		  return (! cargo.getFuncionarios().isEmpty());
+		}  
+	    return false;
+	}	
 
 }
